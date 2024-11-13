@@ -1,0 +1,59 @@
+
+/* Import the Lato font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+/* Apply the Lato font globally to your application */
+:root {
+    --lumo-font-family: 'Lato', sans-serif;
+}
+
+/* Alternatively, apply Lato to all elements explicitly */
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+/*navbar background color*/
+vaadin-app-layout::part(navbar){
+        background-color: #0A73B7;
+}
+
+/* Import styles for all Vaadin input components */
+vaadin-text-field::part(input-field),
+vaadin-password-field::part(input-field),
+vaadin-number-field::part(input-field),
+vaadin-email-field::part(input-field) {
+    border-radius: 5px;
+    border: 0.5px solid #0968A5;
+    height: 40px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+vaadin-text-field::part(label),
+vaadin-password-field::part(label),
+vaadin-number-field::part(label),
+vaadin-email-field::part(label){
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #6E6E6E;
+  font-weight: 500;
+  font-size: 16px;
+  height: 19px;
+}
+
+.LoginButton{
+    height: 45px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    background-color: #0A73B7;
+
+}
+
+.descriptionTextLayout{
+    background-color: #E7F1F8;
+}

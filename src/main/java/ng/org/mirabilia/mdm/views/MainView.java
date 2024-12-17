@@ -17,8 +17,8 @@ import com.vaadin.flow.router.*;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.flow.shared.Registration;
 import com.vaadin.flow.spring.security.AuthenticationContext;
-import jakarta.annotation.security.PermitAll;
 import ng.org.mirabilia.mdm.views.sidemenus.*;
+import ng.org.mirabilia.mdm.views.sidemenus.user.UserManaagementView;
 import ng.org.mirabilia.mdm.views.utils.NavItem;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -114,7 +114,7 @@ public class MainView extends AppLayout implements AfterNavigationObserver {
             RouterLink groupManagementLink = createNavItem("Group Management", VaadinIcon.GROUP, GroupManagementView.class);
             drawerContent.add(groupManagementLink);
 
-            RouterLink userManagementLink = createNavItem("User Management", VaadinIcon.USERS, UserManagementView.class);
+            RouterLink userManagementLink = createNavItem("User Management", VaadinIcon.USERS, UserManaagementView.class);
             drawerContent.add(userManagementLink);
 
             RouterLink deviceTypeManagementLink = createNavItem("Device Type Management", VaadinIcon.MOBILE_BROWSER, DeviceTypeManagementView.class);
@@ -150,11 +150,11 @@ public class MainView extends AppLayout implements AfterNavigationObserver {
 
     @Override
     public void afterNavigation(AfterNavigationEvent afterNavigationEvent) {
-
     }
 
     @Override
     public Registration addAttachListener(ComponentEventListener<AttachEvent> listener) {
         return super.addAttachListener(listener);
     }
+
 }

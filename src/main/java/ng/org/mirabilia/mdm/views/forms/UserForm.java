@@ -16,6 +16,7 @@ import ng.org.mirabilia.mdm.domain.enums.Role;
 import ng.org.mirabilia.mdm.domain.enums.UserStoreDomain;
 import ng.org.mirabilia.mdm.repositories.UserRepository;
 import ng.org.mirabilia.mdm.services.UserService;
+import ng.org.mirabilia.mdm.views.user.UserView;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -124,7 +125,7 @@ public class UserForm extends VerticalLayout {
                        5000, Notification.Position.MIDDLE)
                 .addThemeVariants(NotificationVariant.LUMO_SUCCESS);
 
-//        saveUserButton.addClickListener(clickEvent -> UI.getCurrent().navigate());
+        saveUserButton.addClickListener(clickEvent -> UI.getCurrent().navigate(UserView.class));
     }
 
 

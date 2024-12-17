@@ -12,10 +12,9 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.time.LocalDateTime;
 
-@Data
+@Entity
 @Getter
 @Setter
-@Entity
 @Table(name = "users")
 public class User {
 
@@ -48,21 +47,4 @@ public class User {
     private String password;
 
     private LocalDateTime dateAndTimeCreated;
-
-
-    public User() {
-    }
-
-    public User(Long id, String username, String firstName, String lastName, String email,
-                UserStoreDomain userStoreDomain, Role userrole, String password, LocalDateTime dateAndTimeCreated) {
-        this.id = id;
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.userStoreDomain = userStoreDomain;
-        this.userrole = userrole;
-        this.dateAndTimeCreated = dateAndTimeCreated;
-    }
-
 }

@@ -1,6 +1,7 @@
 package ng.org.mirabilia.mdm;
 
 import com.vaadin.flow.component.page.AppShellConfigurator;
+import com.vaadin.flow.server.PWA;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -13,6 +14,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
  * and some desktop browsers.
  */
 @SpringBootApplication(scanBasePackages = {"boot.registration", "ng.org.mirabilia.mdm"}, exclude = {SecurityAutoConfiguration.class})
+@PWA(name = "Property Management System",
+        shortName = "MiraMDM",
+        description = "Mobile Device Management, developed by Mirabilia Nigeria Limited",
+        iconPath = "icons/pwa-icon.png",
+        offlineResources = { "icons/pwa-icon.png" })
 @EnableWebSecurity
 public class Application implements AppShellConfigurator {
 

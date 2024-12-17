@@ -1,9 +1,7 @@
 package ng.org.mirabilia.mdm.config.security;
 
 import com.vaadin.flow.spring.security.AuthenticationContext;
-import com.vaadin.flow.spring.security.VaadinWebSecurity;
 import ng.org.mirabilia.mdm.services.security.CustomUserDetailsService;
-import ng.org.mirabilia.mdm.views.LoginView;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;

@@ -1,4 +1,4 @@
-package ng.org.mirabilia.mdm.views.user;
+package ng.org.mirabilia.mdm.views.sidemenus.user;
 
 import com.vaadin.flow.component.html.H4;
 import com.vaadin.flow.component.html.Image;

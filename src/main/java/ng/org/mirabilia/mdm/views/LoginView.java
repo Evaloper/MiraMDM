@@ -18,14 +18,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-@Route("login")
+@Route("/login")
 @AnonymousAllowed
-
 public class LoginView extends VerticalLayout {
 
     private final LoginForm loginForm = new LoginForm();
     private final WelcomeTextScreen welcomeTextScreen = new WelcomeTextScreen();
-    private final Image mdmImage = new Image("/images/logo.png", "LOGO");
+    private final Image mdmImage = new Image("images/logo.png", "LOGO");
     private final DaoAuthenticationProvider authenticationProvider;
 
     @Autowired
@@ -66,7 +65,7 @@ public class LoginView extends VerticalLayout {
                 // Check if the user is authenticated and navigate to the UserView
                 if (authenticatedUser.isAuthenticated()) {
                     SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
-                    UI.getCurrent().navigate("UserView");
+                    UI.getCurrent().navigate("/main");
                 } else {
                     Notification.show("Authentication failed");
                 }

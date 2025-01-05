@@ -58,7 +58,7 @@ public class MainView extends AppLayout implements AfterNavigationObserver {
         Image miraLogo = new Image();
         miraLogo.setWidth("15px");
         miraLogo.setHeight("15px");
-        miraLogo.setSrc("images/logo.png");
+        miraLogo.setSrc("image/logo.png");
         miraLogo.getStyle().setMarginRight("12px").setMarginBottom("4px");
 
         Button notification = new Button();
@@ -100,7 +100,7 @@ public class MainView extends AppLayout implements AfterNavigationObserver {
     }
 
     private void configureDrawer() {
-        Image logo = new Image("images/logo.png", "Logo");
+        Image logo = new Image("image/logo.png", "Logo");
 //        logo.addClassName("drawer-logo");
 
         VerticalLayout drawerContent = new VerticalLayout(logo);
@@ -122,6 +122,12 @@ public class MainView extends AppLayout implements AfterNavigationObserver {
 
             RouterLink policyManagementLink = createNavItem("Policy Management", VaadinIcon.CHEVRON_UP, PolicyManagementView.class);
             drawerContent.add(policyManagementLink);
+
+            RouterLink configSettingsLink = createNavItem("Configuration Settings", VaadinIcon.BRIEFCASE, ConfigurationSettings.class);
+            drawerContent.add(configSettingsLink);
+
+            RouterLink deviceLocationtLink = createNavItem("Device Location", VaadinIcon.LOCATION_ARROW, DeviceLocation.class);
+            drawerContent.add(deviceLocationtLink);
 
 //        drawerContent.addClassName("drawer-content");
 

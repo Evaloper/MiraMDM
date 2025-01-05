@@ -24,7 +24,7 @@ public class LoginView extends VerticalLayout {
 
     private final LoginForm loginForm = new LoginForm();
     private final WelcomeTextScreen welcomeTextScreen = new WelcomeTextScreen();
-    private final Image mdmImage = new Image("images/logo.png", "LOGO");
+    private final Image mdmImage = new Image("image/logo.png", "LOGO");
     private final DaoAuthenticationProvider authenticationProvider;
 
     @Autowired

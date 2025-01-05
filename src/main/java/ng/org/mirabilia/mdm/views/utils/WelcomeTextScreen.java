@@ -10,7 +10,7 @@ public class WelcomeTextScreen extends VerticalLayout {
 
     private final H3 welcomeToMiraMDM;
     private final Html textUnderWelcomeToMDM;
-    private final Image mockUpImage = new Image("images/Group2772.png", "Mock-up");
+    private final Image mockUpImage = new Image("image/Group2772.png", "Mock-up");
     private final VerticalLayout descriptionTextLayout = new VerticalLayout();
 
 

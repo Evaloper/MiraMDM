@@ -12,7 +12,7 @@ import com.vaadin.flow.server.StreamResource;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import ng.org.mirabilia.mdm.views.MainView;
 
-@Route(value = "", layout = MainView.class)
+@Route(value = "HomeView", layout = MainView.class)
 @PageTitle("Home")
 @AnonymousAllowed
 public class HomeView extends VerticalLayout {

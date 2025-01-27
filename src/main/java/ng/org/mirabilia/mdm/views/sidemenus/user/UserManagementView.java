@@ -2,6 +2,7 @@ package ng.org.mirabilia.mdm.views.sidemenus.user;
 
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
@@ -17,6 +18,7 @@ import ng.org.mirabilia.mdm.domain.entities.User;
 import ng.org.mirabilia.mdm.repositories.UserRepository;
 import ng.org.mirabilia.mdm.services.UserService;
 import ng.org.mirabilia.mdm.views.MainView;
+import ng.org.mirabilia.mdm.views.utils.DeleteDialog;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -24,7 +26,7 @@ import java.util.List;
 @Route(value = "usermgt", layout = MainView.class)
 @PageTitle("User Management")
 @AnonymousAllowed
-public class UserManaagementView extends VerticalLayout {
+public class UserManagementView extends VerticalLayout {
 
     Button addNewUser;
     TextField search = new TextField();
@@ -35,7 +37,7 @@ public class UserManaagementView extends VerticalLayout {
 
 
     @Autowired
-    public UserManaagementView(UserRepository userRepository, UserService userService) {
+    public UserManagementView(UserRepository userRepository, UserService userService) {
         this.userRepository = userRepository;
         this.userService = userService;
 
@@ -48,7 +50,7 @@ public class UserManaagementView extends VerticalLayout {
 
         VerticalLayout mainLayout = new VerticalLayout();
         mainLayout.setSizeFull();
-        mainLayout.getStyle().set("background-color", "#f5f5f5");
+        mainLayout.getStyle().set("background-color", "white");
 
         HorizontalLayout actionBar = new HorizontalLayout();
         Button bulkEditButton = new Button("Bulk Edit");
@@ -75,7 +77,7 @@ public class UserManaagementView extends VerticalLayout {
         gridLayout.setWidthFull();
         gridLayout.getStyle()
                 .set("display", "grid")
-                .set("grid-template-columns", "repeat(3, auto)")  // Ensures 3 cards per row
+                .set("grid-template-columns", "repeat(4, auto)")  // Ensures 3 cards per row
                 .set("gap", "15px 15px")  // Spacing between cards
                 .setAlignSelf(Style.AlignSelf.CENTER)
                 .setAlignItems(Style.AlignItems.CENTER);
@@ -107,24 +109,20 @@ public class UserManaagementView extends VerticalLayout {
 
             card.setAlignItems(Alignment.CENTER);
             card.setJustifyContentMode(JustifyContentMode.CENTER);
+
+            card.deleteIcon.addClickListener(e -> {
+                Dialog deleteDialog = new DeleteDialog(
+                        () -> {
+                            userService.deleteUser(user.getId());
+                        }
+                );
+                deleteDialog.open();
+            });
             gridLayout.add(card);
         }
-
         mainLayout.add(actionBar,actionBarTwo, gridLayout);
         add(mainLayout);
     }
-
-    // Mock method to simulate DB results
-//    private List<User> getMockUsers() {
-//        List<User> users = new ArrayList<>();
-//        users.add(new User(1L, "MiraUser", "Mirabilia", "User", "Test@admin.com", UserStoreDomain.PRIMARY, Role.ADMIN, "1234567", LocalDateTime.now()));
-//        users.add(new User(2L, "AdminUser", "Admin", "User", "admin@user.com", UserStoreDomain.PRIMARY, Role.ADMIN, "1234567", LocalDateTime.now()));
-//        users.add(new User(3L, "NewUser", "new", "user", "Test@admin.com", UserStoreDomain.PRIMARY, Role.ADMIN, "1234567", LocalDateTime.now()));
-//        users.add(new User(4L, "NewUser2", "new", "users", "Test@admin.com", UserStoreDomain.PRIMARY, Role.ADMIN, "1234567", LocalDateTime.now()));
-//        users.add(new User(5L, "AccessUser", "Access", "user", "Test@admin.com", UserStoreDomain.PRIMARY, Role.ADMIN, "1234567", LocalDateTime.now()));
-//        users.add(new User(6L, "TestUser", "Test", "user", "Test@admin.com", UserStoreDomain.PRIMARY, Role.ADMIN, "1234567", LocalDateTime.now()));
-//        return users;
-//    }
 }
 
 

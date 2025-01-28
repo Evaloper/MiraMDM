@@ -10,38 +10,33 @@ public class WelcomeTextScreen extends VerticalLayout {
 
     private final H3 welcomeToMiraMDM;
     private final Html textUnderWelcomeToMDM;
-    private final Image mockUpImage = new Image("images/Group2772.png", "Mock-up");
+    private final Image mockUpImage = new Image("/image/Group2772.png", "Mock-up");
     private final VerticalLayout descriptionTextLayout = new VerticalLayout();
 
 
-
     public  WelcomeTextScreen() {
-        addClassName("WelcomeTextScreen");
-
         setSizeFull();
         setHeightFull();
         setWidthFull();
-        setClassName("descriptionTextLayout");
+
+        addClassName("descriptionTextLayout");
 
         //first Half of the login screen
         welcomeToMiraMDM = new H3("Welcome to MIRAMDM");
-        textUnderWelcomeToMDM = new Html("<div>Simplify your mobile device management with MiraMDM. " +
-                "Whether you’re managing a few devices or an entire fleet," +
-                "our platform offers real-time monitoring, secure controls," +
-                "and seamless integration.</div>");
-
-
-        mockUpImage.getStyle().setWidth("200px");
-        welcomeToMiraMDM.getStyle().setFontSize("30px").setFontWeight(700);
-
+        textUnderWelcomeToMDM = new Html("<div> Simplify your mobile device management with MiraMDM. Whether you’re managing a few devices or an entire fleet, our platform offers real-time monitoring, secure controls, and seamless integration.</div>");
         descriptionTextLayout.addClassName("descriptionTextLayout");
         descriptionTextLayout.add(welcomeToMiraMDM,  textUnderWelcomeToMDM, mockUpImage);
-        descriptionTextLayout.getStyle().setBackgroundColor("#E7F1F8").setJustifyContent(Style.JustifyContent.CENTER).setAlignItems(Style.AlignItems.CENTER);
 
-
+        //inline styling
         descriptionTextLayout.setHeightFull();
-//        descriptionTextLayout.setWidthFull();
-        descriptionTextLayout.getStyle().setMaxWidth("500px");
+        descriptionTextLayout.getStyle();
+        mockUpImage.getStyle().setMaxWidth("500px").setAlignSelf(Style.AlignSelf.CENTER).setMinWidth("250px");
+        textUnderWelcomeToMDM.getStyle().setTextAlign(Style.TextAlign.CENTER);
+        welcomeToMiraMDM.getStyle().setFontSize("30px").setFontWeight(700).setMarginBottom("10px");
+        descriptionTextLayout.getStyle().setMaxWidth("500px").setBackgroundColor("#E7F1F8").setJustifyContent(Style.JustifyContent.CENTER)
+                .setPaddingLeft("20px").setAlignItems(Style.AlignItems.CENTER).setMargin("auto");
+
+        //description Text Display
         add(descriptionTextLayout);
 
 

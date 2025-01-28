@@ -30,7 +30,7 @@ public class UserFormView extends VerticalLayout {
 
 
 
-        backToUsersButton = new Button("Back To Users", e -> UI.getCurrent().navigate(UserManaagementView.class));
+        backToUsersButton = new Button("Back To Users", e -> UI.getCurrent().navigate(UserManagementView.class));
 //        userForm = new UserForm(userService, userRepository, v -> UI.getCurrent().navigate(UserView.class));
         userForm = new UserForm(userService, userRepository);
 

@@ -15,7 +15,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
  * and some desktop browsers.
  */
 @SpringBootApplication(scanBasePackages = {"boot.registration", "ng.org.mirabilia.mdm"}, exclude = {SecurityAutoConfiguration.class})
-@PWA(name = "Property Management System",
+@PWA(name = "Mobile Device Management",
         shortName = "MiraMDM",
         description = "Mobile Device Management, developed by Mirabilia Nigeria Limited",
         iconPath = "icons/pwa-icon.png",

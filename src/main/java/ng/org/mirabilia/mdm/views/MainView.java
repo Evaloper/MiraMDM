@@ -17,16 +17,18 @@ import com.vaadin.flow.router.*;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.flow.shared.Registration;
 import com.vaadin.flow.spring.security.AuthenticationContext;
+import ng.org.mirabilia.mdm.Application;
 import ng.org.mirabilia.mdm.views.sidemenus.*;
 import ng.org.mirabilia.mdm.views.sidemenus.user.UserManaagementView;
 import ng.org.mirabilia.mdm.views.utils.NavItem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Route("/main")
-@PageTitle("main")
+@Route("/")
+@PageTitle("")
 @AnonymousAllowed
 public class MainView extends AppLayout implements AfterNavigationObserver {
 
@@ -133,7 +135,10 @@ public class MainView extends AppLayout implements AfterNavigationObserver {
 
 //        logOutDialog.logOutButton.addClickListener(event -> authContext.logout());
         Button logoutButton = new Button("Logout", VaadinIcon.SIGN_OUT.create(),
-                clickEvent -> UI.getCurrent().navigate("/login"));
+                clickEvent -> {
+            UI.getCurrent().navigate("/login");
+                    authContext.logout();
+                });
 
 //        logoutButton.addClassName("custom-logout-button");
 //        logoutButton.addClassName("drawer-link");

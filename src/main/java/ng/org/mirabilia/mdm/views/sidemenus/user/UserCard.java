@@ -12,6 +12,7 @@ import com.vaadin.flow.dom.Style;
 import ng.org.mirabilia.mdm.domain.entities.User;
 
 public class UserCard extends HorizontalLayout {
+    public Icon deleteIcon;
 
     public UserCard(User user) {
         // Card container styling
@@ -94,7 +95,7 @@ public class UserCard extends HorizontalLayout {
         Icon mailIcon = VaadinIcon.LOCK.create();
         mailIcon.getStyle().set("color", "#F47415").setWidth("15px");
 
-        Icon deleteIcon = VaadinIcon.TRASH.create();
+        deleteIcon = VaadinIcon.TRASH.create();
         deleteIcon.getStyle().set("color", "#F47415").setWidth("15px");
 
         actions.add(keyIcon, mailIcon, deleteIcon);

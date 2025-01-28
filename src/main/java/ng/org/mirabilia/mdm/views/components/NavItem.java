@@ -1,4 +1,4 @@
-package ng.org.mirabilia.mdm.views.utils;
+package ng.org.mirabilia.mdm.views.components;
 
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;

@@ -9,7 +9,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.dom.Style;;
+import com.vaadin.flow.dom.Style;
 
 @CssImport("./themes/style.css")
 public class LoginForm extends HorizontalLayout  {
@@ -22,8 +22,6 @@ public class LoginForm extends HorizontalLayout  {
     private final FormLayout loginFormLayout;
     private final HorizontalLayout secondHalfHorizontalLayout;
 
-    private final VerticalLayout descriptionTextLayout = new VerticalLayout();
-
     public LoginForm(){
         addClassName("LoginFormLayout");
         setSizeFull();
@@ -34,13 +32,11 @@ public class LoginForm extends HorizontalLayout  {
         loginText = new H3("Login");
         username = new TextField("USERNAME");
         password = new PasswordField("PASSWORD");
-
         loginNotificationText = new Html("<div>This site uses cookies. By logging in to the site, you are " +
                 "agreeing to the usage of cookies. For more information, "+
                 "refer to the cookie policy and privacy policy.</div>");
         secondHalfHorizontalLayout = new HorizontalLayout();
         secondHalfHorizontalLayout.add(loginNotificationText);
-
         loginButton = new Button("LOGIN");
         loginButton.addClassName("LoginButton");
 
@@ -55,16 +51,14 @@ public class LoginForm extends HorizontalLayout  {
         loginVerticalLayout.setHeightFull();
 
 
-        //login Entire Screen
-
-
+        //inline styling
         loginNotificationText.getStyle().setFontSize("14px").setFontWeight(400);
         loginText.getStyle().setTextAlign(Style.TextAlign.CENTER).setFontWeight(700).setFontSize("30px");
         secondHalfHorizontalLayout.getStyle().setMaxWidth("700px").setBorderRadius("7px").setPadding("15px").setBackgroundColor("#FCD4B6")
                 .setTextAlign(Style.TextAlign.CENTER).setMarginTop("20px");
         loginButton.getStyle().setMaxWidth("305px").setMarginTop("30px");
-        loginVerticalLayout.getStyle().setPadding("9%").setMargin("0");
-        loginFormLayout.setMaxWidth("500px");
+        loginFormLayout.getStyle().setMaxWidth("500px");
+        loginVerticalLayout.getStyle().setJustifyContent(Style.JustifyContent.CENTER).setAlignItems(Style.AlignItems.CENTER).setPadding("20%").setMinWidth("500px");
 
         add(loginVerticalLayout);
 
